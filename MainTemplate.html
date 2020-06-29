@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Panel</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	
+	<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="fontawesome/css/all.min.css">
+	<script type="text/javascript" src="1234.js"></script>
+	<style type="text/css">
+		
+		*{
+	padding: 0;
+	margin: 0;
+	font-family: Nunito;
+}
+body{
+	background: white;
+}
+.main{
+	margin-left: 260px;
+}
+.sidenavHeading{
+	position: fixed;
+	top: 0;
+	background: #2c343b;
+	height: 60px;
+	width: 260px;
+	color: white;
+	transition: 0.3s;
+	z-index: 1;
+}
+.brand{
+	display: flex;
+	float: left;
+	letter-spacing: 2px;
+	padding: 14px;
+}
+
+.icon{
+	display: none;
+}
+.menu2{
+	position: fixed;
+	top: 0px;
+	background: white;
+	box-shadow:  2px 2px 10px rgba(0,0,0,.1);
+    height: 60px;
+    width: 100%;
+    padding-right: 280px;
+    z-index: 1;
+
+}
+.badge-glow{
+	position: absolute;
+	right: 215px;
+	opacity: 0.9;
+	box-shadow: 2px 2px 10px red;
+}
+.online{
+	position: absolute;
+	top: 34px;
+	right: 15px;
+	height: 10px;
+	width: 10px;
+	border-radius: 100%;
+	background: #28d094;
+	border: 1px solid white;
+
+}
+
+/*dropdowns*/
+.dropdown-toggle::after{
+	display: none;
+}
+.media{
+		padding: 10px;
+		border-bottom: 1px solid rgba(0,0,0,0.2);
+
+	}
+	.heading .header{
+		padding: 8px 15px;
+		text-transform: uppercase;
+	}
+	.heading .badge{
+		margin: 8px;
+		float: right;
+		font-size: 10px;
+		padding: 7px;
+		color: white;
+		letter-spacing: 1px;
+	}
+	.drop1{
+		margin-right: 20px
+	}
+	.drop2{
+		margin-right: 150px
+	}
+	.drop3{
+		margin-right: 220px;
+	}
+	.drop4{
+		margin-right: 290px;
+	}
+@media screen and (max-width: 500px){
+	
+	.dropdown-menu{
+		width: 100%;
+		margin-right:0;
+	}
+	.drop1,.drop2,.drop3,.drop4{
+		margin: 0;
+	}
+}
+/*end of dropdowns*/
+.menu2 a{
+	float: right;
+}
+@media screen and (max-width: 900px){
+	.sidenavHeading{
+		width: 100%;
+		transition: 0.4s;
+		box-shadow: none;
+	}
+	.menu2{
+		display: none;
+		top: 60px;
+		width: 100%;
+	
+	}
+	.brand{
+		float: none;
+		justify-content: center;
+	}
+	
+	.sidenavHeading .icon{
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 14px 16px;
+		color: white;
+		cursor: pointer;
+		font-size: 18px;
+	}
+	
+	.menu2.responsive {
+		margin: 0;
+		display: block;
+		transition: 0.3s;
+		padding-right: 10px;
+		
+	}
+
+}
+/*Side nav*/
+.sidenav{
+  background: #2c343b;
+  height: 100vh;
+  width: 260px;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  z-index: 1;
+  box-shadow:  10px 13px 15px #cfcfcf;
+  }
+.sidenav:hover{
+	overflow: scroll;
+	transition: 0.2s;
+}
+::-webkit-scrollbar{
+  width: 10px;
+  border-radius: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+  background: #999; 
+}
+
+
+
+.sidenav ul{
+  padding: 0;
+  margin: 0;
+}
+.sidenav ul li{
+  list-style: none;
+}
+.sidenav ul li a{
+  text-decoration: none;
+  color: #cecfcf;
+  display: block;
+  padding: 12px 16px;
+  position: relative;
+}
+.sidenav ul li a:hover{
+ transform: translate(4px);
+ color: white;
+ transition: .2s;
+}
+
+ul li ul{
+ color: #cecfcf;
+ display: none;
+}
+ul li ul li{
+	padding:10px 15px;
+}
+ul li ul li:hover{
+	transform: translate(3px);
+    color: white;
+    transition: .3s;
+    cursor: pointer;
+}
+.arrow{
+  font-size: 10px;
+position: absolute;
+top: 18px;
+left: 220px;
+transition: .3s;
+}
+.change .arrow{
+  transform: rotate(90deg) translate(3px,-3px);
+  transition: .3s;
+ }
+.menuicon{
+  display: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+@media screen and (max-width: 900px){
+  .sidenav{
+    width: 0;
+    overflow: hidden;
+    transition: .3s;
+
+  }
+  .main{
+    margin-left: 0px;
+    transition: .5s;
+  }
+  .menuicon{
+    display: block;
+    float: left;
+    position: absolute;
+    padding: 14px;
+  }
+  .sidenav.responsive{
+    width: 250px;
+    transition: .5s;
+  }
+ 
+  
+}
+/*End of side nav*/
+
+/*Cards*/
+.cardC{
+	margin-top: 70px;
+	margin-bottom: 20px;
+}
+.cards:hover{
+	transform: translateY(-6px);
+
+	transition: 0.24s;
+}
+
+/*End of cards*/
+/*table*/ 
+.shado{
+
+	border-radius: 5px;
+	box-shadow:  7px 7px 20px #cfcfcf, 
+             -5px -5px 20px #ffffff;
+             border:none;
+}
+.trow{
+	font-size: 14px;
+	color: #666;
+}
+.trow .badge{
+	font-size: 10px;
+	position: absolute;
+	left: 80px;
+	background: rgba(1,1,10,.1);
+	color: black;
+	padding: 5px;
+
+}
+.trow img{
+	border: 2px solid white;
+}
+.trow .img2{
+	position: relative;
+	right: 8px;
+}
+.trow .img2:hover{
+z-index: 1;
+}
+.trow img:hover{
+	transform: translateY(-3px);
+	transition: 0.2s;
+	cursor: pointer;
+}
+.trow .img1{
+	position: relative;
+}
+.trow .img1:hover{
+	z-index: 1;
+}
+.card-header{
+	border: none;
+	color: #666;
+	padding: 20px;
+}
+.trow th{
+	padding: 20px 39px;
+	border-top: none;
+}
+.trow td{
+	position: relative;
+	padding: 15px 39px;
+}
+.trow button{
+	margin-left:15px;
+}
+.progress{
+	margin-top: 12px;
+	box-shadow:  10px 10px 15px #cfcfcf, 
+             -10px -10px 20px #ffffff;
+            
+}
+/*end of table*/
+
+
+
+
+	</style>
+</head>
+<body>
+	<!-- Side nav header -->
+	<div class="sidenavHeading black">
+		<div class="menuicon " onclick="myFunction()" >
+			<i class="fal fa-bars" style="font-size: 22px;"></i>
+		 </div>
+		<h4 class="brand"><img src="logo2.png" width="30" height="30">&nbspModern</h4>
+		
+		
+		<div class="icon" onclick="res()">
+			<i class="far fa-ellipsis-v" style="font-size: 22px;"></i>
+		</div>
+	</div>
+	<!-- End Sid nav header -->
+	<nav class="sidenav black" id="mysidenav">
+	<ul>
+		<li><a href="#" class="drop" onclick="iconRotate(this)"><i class="far fa-home"></i>&nbsp&nbsp Dashboard <i class="fas fa-chevron-right arrow"></i></a>
+    <ul>
+      <li>eCommerce</li>
+      <li>Crypto</li>
+      <li>Sales</li>
+    </ul></li>
+		<li><a href="#" class="drop" onclick="iconRotate(this)"><i class="far fa-tv"></i>&nbsp&nbsp Templates <i class="fas fa-chevron-right arrow"></i></a>
+    <ul>
+      <li>Vertical</li>
+      <li>Horizental</li>
+    </ul></li><br>
+    <span  style="color: #cecfcf; font-size: 13px; margin:12px">ADMIN PANELS</span>
+		<li><a href=""><i class="far fa-shopping-cart"></i>&nbsp&nbsp eCommerce</a></li>
+		<li><a href=""><i class="far fa-plane"></i>&nbsp&nbsp Travel & Booking</a></li>
+		<li><a href=""><i class="far fa-stethoscope"></i>&nbsp&nbsp Hospital</a></li>
+		<li><a href=""><i class="far fa-bitcoin"></i>&nbsp&nbsp Crypto</a></li>
+		<li><a href=""><i class="far fa-tag"></i>&nbsp&nbsp Supporting Ticket</a></li>
+		<li><a href=""><i class="far fa-university"></i>&nbsp&nbsp Bank</a></li><br>
+	<span  style="color: #cecfcf; font-size: 13px; margin:12px">APPS</span>
+		<li><a href=""><i class="far fa-list"></i>&nbsp&nbsp Todo</a></li>
+		<li><a href=""><i class="far fa-users"></i>&nbsp&nbsp Contacts</a></li>
+		<li><a href=""><i class="far fa-envelope"></i>&nbsp&nbsp Emails</a></li>
+		<li><a href=""><i class="far fa-comments"></i>&nbsp&nbsp Chats</a></li>
+		<li><a href=""><i class="far fa-briefcase"></i>&nbsp&nbsp Project</a></li>
+		<li><a href=""><i class="far fa-calendar"></i>&nbsp&nbsp Calendars</a></li><br>
+	<span  style="color: #cecfcf; font-size: 13px; margin:12px">PAGES</span>
+	    <li><a href=""><i class="far fa-newspaper"></i>&nbsp&nbsp News Feed</a></li>
+	    <li><a href=""><i class="far fa-share"></i>&nbsp&nbsp Social Feed</a></li>
+	    <li><a href=""><i class="far fa-film"></i>&nbsp&nbsp Timelines</a></li>
+	    <li><a href=""><i class="far fa-user-plus"></i>&nbsp&nbsp Account Setting</a></li><br><br>
+	</ul>
+	</nav>
+	<!-- End of side Nav -->
+
+
+
+	<div class="main">
+	<div class="menu2 black" id="mymenu2">
+		<!-- Dropdown 1 -->
+
+		<div class="dropdown" >
+	<a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" aria-expanded="false">
+		<span class="text-muted pname">John Doe</span>
+		<span class="avatar">
+			<img src="avatar2.png" class="rounded-circle" width="35" height="35" alt="avatar" >
+			<i class="online"></i>
+		</span>
+
+		</a>
+                <div class="dropdown-menu drop1">
+                	<a class="dropdown-item" href=""> Edit Profile</a>
+                	<a class="dropdown-item" href="">Todo</a>
+                	<a class="dropdown-item" href="">Task</a>
+                  <a class="dropdown-item" href="">Logout</a>
+                </div>
+              </div>
+          <!-- Dropdown 2 -->
+          <div class="dropdown">
+				<a class="nav-link " href="#" data-toggle="dropdown"  aria-expanded="true" ><i class="far fa-envelope m-2 text-muted" style="font-size: 20px"></i></a>
+
+<ul class="dropdown-menu drop2">
+                  <li class=" heading mb-1">
+                    <h6 class="header float-left">
+                    	Messages
+                    </h6>
+                    <span class="badge badge-warning  ">4 New</span>
+                  </li><br><hr>
+                  <li class="scrollable-container media-list w-100 ps">
+
+                      <div class="media">
+                        <div class="media-left">
+                        	<span class="avatar avatar-sm avatar-online "><img src="avatar.png" class="rounded-circle" width="35" height="35" alt="avatar"></span>&nbsp &nbsp
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading m-0">Margaret Govan</h6>
+                          <p class="text-muted m-0">I like your portfolio, let's start.</p><small>
+                            <time class="media-meta text-muted" >Today</time></small>
+                        </div>
+                      </div>
+
+                      <div class="media">
+                        <div class="media-left">
+                        	<span class="avatar avatar-sm avatar-busy "><img src="avatar.png" class="rounded-circle" width="35" height="35" alt="avatar"></span>&nbsp &nbsp
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading m-0">Bret Lezama</h6>
+                          <p class="notification-text text-muted m-0">I have seen your work, there is</p>
+                          <small><time class="media-meta text-muted">Tuesday</time></small>
+                        </div>
+                      </div>
+
+                      <div class="media">
+                        <div class="media-left">
+                        	<span class="avatar avatar-sm avatar-online "><img src="avatar2.png" alt="avatar" width="35" height="35" class="rounded-circle"></span>&nbsp &nbsp
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading m-0">Carie Berra</h6>
+                          <p class="notification-text text-muted m-0">Can we have call in this week ?</p><small>
+                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Friday</time></small>
+                        </div>
+                      </div>
+                    
+                      
+                  <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all messages</a></li>
+                </ul>
+            </div>
+	      <!-- Dropdown 3 -->
+				<div class="dropdown">
+					<a class="nav-link " href="#" data-toggle="dropdown" aria-expanded="true" ><i class="far fa-bell m-2 text-muted" style="font-size: 20px;"></i>
+						<span class="badge badge-pill badge-danger badge-glow">5</span>
+					</a>
+<ul class="dropdown-menu drop3">
+                  <li class=" heading mb-1">
+                    <h6 class="header float-left">
+                    	Notifications
+                    </h6>
+                    <span class="badge badge-warning  ">4 New</span>
+                  </li><br><hr>
+                  <li class="scrollable-container media-list w-100 ps">
+
+                      <div class="media">
+                        <div class="media-left">
+                        	<i class="fas fa-plus-square text-primary" style="font-size: 20px"></i>&nbsp &nbsp
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading m-0 text-primary">You have new order</h6>
+                          <p class="text-muted m-0">I like your portfolio, let's start.</p><small>
+                            <time class="media-meta text-muted" >5 hours ago</time></small>
+                        </div>
+                      </div>
+
+                      <div class="media">
+                        <div class="media-left">
+                        	<i class="fas fa-cloud-download-alt text-danger" style="font-size: 20px"></i>&nbsp &nbsp
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading m-0 text-danger">90% server load</h6>
+                          <p class="notification-text text-muted m-0">I have seen your work, there is</p>
+                          <small><time class="media-meta text-muted">2 hours ago</time></small>
+                        </div>
+                      </div>
+
+                      <div class="media">
+                        <div class="media-left">
+                        	<i class="fas fa-exclamation-triangle text-warning" style="font-size: 20px"></i>&nbsp &nbsp
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading m-0 text-warning" >Warning notification</h6>
+                          <p class="notification-text text-muted m-0">Can we have call in this week ?</p><small>
+                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Friday</time></small>
+                        </div>
+                      </div>
+                    
+                      
+                  <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center">Read all messages</a></li>
+                </ul>
+				</div>
+		  <!-- Dropdown 4 -->
+		  <div class="dropdown" >
+	<a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" aria-expanded="false">
+		<img src="language.png" width="25px" height="25px" style="margin-top: 6px;">
+		</a>
+                <div class="dropdown-menu drop4">
+                	<a class="dropdown-item" href=""> English</a>
+                	<a class="dropdown-item" href="">French</a>
+                	<a class="dropdown-item" href="">Urdu</a>
+                  <a class="dropdown-item" href="">Hindi</a>
+                </div>
+              </div>
+			
+	</div>
+<!-- End of top nav -->
+
+<!-- 	cards -->
+	<div class="container cardC">
+		 <div class="row ">
+		 	<div class="col-md p-4 m-3 cards shado">
+		 		<div class="content">
+		 		<div class="float-left">
+		 		<h6 class="text-muted">Sales</h6>
+		 		<h4 class="text-muted">$10,000</h4>
+		 	</div>
+		 	<span class="float-right"><i class="fal fa-dollar-sign fa-3x text-success"></i></span>
+		 </div>
+		 	</div>
+
+		 	<div class="col-md p-4 m-3 shado cards ">
+		 		<div class="content">
+		 		<div class="float-left">
+		 		<h6 class="text-muted">Calls</h6>
+		 		<h4 class="text-muted">3,000</h4>
+		 	</div>
+		 	<span class="float-right"><i class="fal fa-phone fa-3x text-danger"></i></span>
+		 </div>
+		 	</div>
+		 	<div class="col-md p-4 m-3 shado cards">
+		 		<div class="content">
+		 		<div class="float-left">
+		 		<h6 class="text-muted">Order Value</h6>
+		 		<h4 class="text-muted">$86,000</h4>
+		 	</div>
+		 	<span class="float-right"><i class="fal fa-trophy fa-3x text-warning"></i></span>
+		 </div>
+		 	</div>
+
+
+
+		 </div>
+	</div>
+	<!-- end of cards -->
+
+
+	<!-- Tow grids table and sales -->
+<div class="container">
+	<div class="row">
+		<!-- Table -->
+		<div class="col-lg-8 mb-5 ">
+			<div class="card shado ">
+				<div class="card-header bg-white float-left">
+					<h5>Recent Sales</h5>
+					
+				</div>
+			<table class="table table-responsive table-xl table-hover">
+				 
+	<thead>
+		<tr class="trow">
+			<th >Products</th>
+			<th >Customers</th>
+			<th>Categories</th>
+			<th >Popularity</th>
+			<th>Amount</th>
+		</tr>
+	</thead>
+	<tbody>
+		<!-- 1st row of table -->
+		<tr class="trow">
+			<td class="px-4">iPhone X</td>
+			<td class="px-4">
+				
+					
+						<img  src="avatar.png" class="rounded-circle fluid img1" width="35" height="35">
+					
+					
+						<img src="avatar2.png" class="rounded-circle fluid img2" width="35" height="35">
+					<span class="badge badge-danger">+8 more</span>
+				
+
+			</td>
+			<td class="px-4">
+				<button class="btn btn-outline-danger " style="border-radius: 50px; font-size: 12px;">Mobile</button>
+			</td>
+			<td class="px-4">
+				<div class="progress"  style="height: 8px">
+					<div class="progress-bar bg-danger" style="width: 89%"></div>
+
+				</div>
+			</td>
+			<td class="px-4">$1200.00</td>
+		</tr>
+		<!-- 2nd row of table -->
+		<tr class="trow">
+			<td class="px-4">iPad</td>
+			<td class="px-4">
+				
+					
+						<img src="avatar.png" class="rounded-circle fluid img1" width="35" height="35">
+					
+					
+						<img src="avatar2.png" class="rounded-circle fluid img2" width="35" height="35">
+					<span class="badge badge-danger">+6 more</span>
+				
+
+			</td>
+			<td class="px-4">
+				<button class="btn btn-outline-success " style="border-radius: 50px; font-size: 14px;">Tablet</button>
+			</td>
+			<td class="px-4">
+				<div class="progress"  style="height: 8px">
+					<div class="progress-bar bg-success" style="width: 75%"></div>
+
+				</div>
+			</td>
+			<td class="px-4">$1600.00</td>
+		</tr>
+		<!-- 3rd row of table -->
+		<tr class="trow">
+			<td class="px-4">Samsung</td>
+			<td class="px-4">
+				
+					
+						<img src="avatar.png" class="rounded-circle fluid img1" width="35" height="35">
+					
+					
+						<img src="avatar2.png" class="rounded-circle fluid img2" width="35" height="35">
+					<span class="badge badge-danger">+4 more</span>
+				
+
+			</td>
+			<td class="px-4">
+				<button class="btn btn-outline-danger " style="border-radius: 50px; font-size: 12px;">Mobile</button>
+			</td>
+			<td class="px-4">
+				<div class="progress"  style="height: 8px">
+					<div class="progress-bar bg-danger" style="width: 45%"></div>
+
+				</div>
+			</td>
+			<td class="px-4">$1400.67</td>
+		</tr>
+		<!-- 4rth row of table -->
+		<tr class="trow">
+			<td class="px-4">Oppo</td>
+			<td class="px-4">
+				
+					
+						<img src="avatar.png" class="rounded-circle fluid img1" width="35" height="35">
+					
+					
+						<img src="avatar2.png" class="rounded-circle fluid img2" width="35" height="35">
+					<span class="badge badge-danger">+2 more</span>
+				
+
+			</td>
+			<td class="px-4">
+				<button class="btn btn-outline-success " style="border-radius: 50px; font-size: 12px;">Tablet</button>
+			</td>
+			<td class="px-4">
+				<div class="progress"  style="height: 8px">
+					<div class="progress-bar bg-success" style="width: 55%"></div>
+
+				</div>
+			</td>
+			<td class="px-4">$500.00</td>
+		</tr>
+		<!-- 5th row of table -->
+		<tr class="trow">
+			<td class="px-4">Lenovo</td>
+			<td class="px-4">
+				
+					
+						<img src="avatar.png" class="rounded-circle fluid img1" width="35" height="35">
+					
+					
+						<img src="avatar2.png" class="rounded-circle fluid img2" width="35" height="35">
+					<span class="badge badge-danger">+9 more</span>
+				
+
+			</td>
+			<td class="px-4">
+				<button class="btn btn-outline-danger " style="border-radius: 50px; font-size: 12px;">Mobile</button>
+			</td>
+			<td class="px-4">
+				<div class="progress"  style="height: 8px;">
+					<div class="progress-bar bg-danger " style="width: 35%;"></div>
+
+				</div>
+			</td>
+			<td class="px-4">$1400.00</td>
+		</tr>
+
+
+
+
+	</tbody>
+</table>
+		</div>
+
+</div>
+		<!-- End of table -->
+		<!-- Sales -->
+		<div class="col-lg-3 mb-5 ml-3 pl-4 pt-3  shado black">
+			<table class="table table-responsive " style="font-size: 14px; color: #666;">
+				<thead>
+					<tr>
+						<th style="border-top: none;">Top Products</th>
+						<th style="border-top: none;">
+							<button class="btn text-primary">Show all</button>
+						</th>	
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td >Ipone X</td>
+						<td class="pl-4">$50000</td>
+					</tr>
+					<tr>
+						<td>Samsung S7</td>
+						<td class="pl-4">$45000</td>
+					</tr>
+					<tr>
+						<td>One Plus</td>
+						<td class="pl-4">$33300</td>
+					</tr>
+					<tr>
+						<td>Oppo</td>
+						<td class="pl-4">$23999</td>
+					</tr>
+					<tr>
+						<td>Huawie</td>
+						<td class="pl-4">$22000</td>
+					</tr>
+					<tr>
+						<td>Huawie</td>
+						<td class="pl-4">$22000</td>
+					</tr>
+				</tbody>
+			</table>
+		<!-- End of sales -->
+	</div>
+</div>
+<!--End Tow grids table and sales -->
+
+
+
+<!--End Tow grids table and sales -->
+<div class="container">
+	<div class="row">
+		<div class="col-md  mb-5 mr-3 p-4 shado black" style="font-size: 14px;color: #666;">
+			<h6>Emials</h6><br>
+			<label class="float-left">Open rate</label>
+			<label class="float-right">89%</label><br><br>
+			<div class="progress"  style="height: 8px">
+					<div class="progress-bar bg-danger" style="width: 89%;"></div>
+
+				</div><br>
+				<label class="float-left">Sent</label>
+			<label class="float-right">300/510</label><br><br>
+				<div class="progress"  style="height: 8px">
+					<div class="progress-bar bg-success" style="width: 45%"></div>
+
+				</div>
+
+
+
+		</div>
+		<div class="col-lg-7 p-4 mb-5 shado black" style="color: #666;">
+			<h5 class="text-center mb-4">Average deal size</h5>
+			<div class="row">
+				<div class="col-sm text-center">
+					<label class="text-danger">-3%</label>
+				<h1>$13,000</h1>
+				<label class="text-muted">Per rep</label>
+				</div>
+				<div class="col-sm text-center">
+					
+                <label class="text-success">12%</label>
+				<h1>$18,000</h1>
+				<label class="text-muted">Per team</label>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- responisve menu script -->
+	<script type="text/javascript">
+		function res(){
+			x = document.getElementById("mymenu2");
+			if(x.className === "menu2"){
+				x.className += " responsive";
+			}
+			else{
+				x.className = "menu2";
+			}
+		}
+	</script>
+
+		<script type="text/javascript">
+		function myFunction() {
+  var x = document.getElementById("mysidenav");
+  if (x.className === "sidenav") {
+    x.className += " responsive";
+  } else {
+    x.className = "sidenav";
+  }
+}
+	</script>
+
+	<script type="text/javascript">
+  $('.drop').on('click', function(){
+    $(this).nextUntil('li').slideToggle();
+});
+
+</script>
+
+<script type="text/javascript">
+		function iconRotate(x){
+			x.classList.toggle("change");
+		}
+	</script>
+
+
+</body>
+</html>

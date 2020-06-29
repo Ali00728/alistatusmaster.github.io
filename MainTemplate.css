@@ -1,0 +1,335 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: Nunito;
+}
+body{
+	background: white;
+}
+.main{
+	margin-left: 260px;
+}
+.sidenavHeading{
+	position: fixed;
+	top: 0;
+	background: #2c343b;
+	height: 60px;
+	width: 260px;
+	color: white;
+	transition: 0.3s;
+	z-index: 1;
+}
+.brand{
+	display: flex;
+	float: left;
+	letter-spacing: 2px;
+	padding: 14px;
+}
+
+.icon{
+	display: none;
+}
+.menu2{
+	position: fixed;
+	top: 0px;
+	background: white;
+	box-shadow:  2px 2px 10px rgba(0,0,0,.1);
+    height: 60px;
+    width: 100%;
+    padding-right: 280px;
+    z-index: 1;
+
+}
+.badge-glow{
+	position: absolute;
+	right: 215px;
+	opacity: 0.9;
+	box-shadow: 2px 2px 10px red;
+}
+.online{
+	position: absolute;
+	top: 34px;
+	right: 15px;
+	height: 10px;
+	width: 10px;
+	border-radius: 100%;
+	background: #28d094;
+	border: 1px solid white;
+
+}
+
+/*dropdowns*/
+.dropdown-toggle::after{
+	display: none;
+}
+.media{
+		padding: 10px;
+		border-bottom: 1px solid rgba(0,0,0,0.2);
+
+	}
+	.heading .header{
+		padding: 8px 15px;
+		text-transform: uppercase;
+	}
+	.heading .badge{
+		margin: 8px;
+		float: right;
+		font-size: 10px;
+		padding: 7px;
+		color: white;
+		letter-spacing: 1px;
+	}
+	.drop1{
+		margin-right: 20px
+	}
+	.drop2{
+		margin-right: 150px
+	}
+	.drop3{
+		margin-right: 220px;
+	}
+	.drop4{
+		margin-right: 290px;
+	}
+@media screen and (max-width: 500px){
+	
+	.dropdown-menu{
+		width: 100%;
+		margin-right:0;
+	}
+	.drop1,.drop2,.drop3,.drop4{
+		margin: 0;
+	}
+}
+/*end of dropdowns*/
+.menu2 a{
+	float: right;
+}
+@media screen and (max-width: 900px){
+	.sidenavHeading{
+		width: 100%;
+		transition: 0.4s;
+		box-shadow: none;
+	}
+	.menu2{
+		display: none;
+		top: 60px;
+		width: 100%;
+	
+	}
+	.brand{
+		float: none;
+		justify-content: center;
+	}
+	
+	.sidenavHeading .icon{
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 14px 16px;
+		color: white;
+		cursor: pointer;
+		font-size: 18px;
+	}
+	
+	.menu2.responsive {
+		margin: 0;
+		display: block;
+		transition: 0.3s;
+		padding-right: 10px;
+		
+	}
+
+}
+/*Side nav*/
+.sidenav{
+  background: #2c343b;
+  height: 100vh;
+  width: 260px;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  z-index: 1;
+  box-shadow:  10px 13px 15px #cfcfcf;
+  }
+.sidenav:hover{
+	overflow: scroll;
+	transition: 0.2s;
+}
+::-webkit-scrollbar{
+  width: 10px;
+  border-radius: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+  background: #999; 
+}
+
+
+
+.sidenav ul{
+  padding: 0;
+  margin: 0;
+}
+.sidenav ul li{
+  list-style: none;
+}
+.sidenav ul li a{
+  text-decoration: none;
+  color: #cecfcf;
+  display: block;
+  padding: 12px 16px;
+  position: relative;
+}
+.sidenav ul li a:hover{
+ transform: translate(4px);
+ color: white;
+ transition: .2s;
+}
+
+ul li ul{
+ color: #cecfcf;
+ display: none;
+}
+ul li ul li{
+	padding:10px 15px;
+}
+ul li ul li:hover{
+	transform: translate(3px);
+    color: white;
+    transition: .3s;
+    cursor: pointer;
+}
+.arrow{
+  font-size: 10px;
+position: absolute;
+top: 18px;
+left: 220px;
+transition: .3s;
+}
+.change .arrow{
+  transform: rotate(90deg) translate(3px,-3px);
+  transition: .3s;
+ }
+.menuicon{
+  display: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+@media screen and (max-width: 900px){
+  .sidenav{
+    width: 0;
+    overflow: hidden;
+    transition: .3s;
+
+  }
+  .main{
+    margin-left: 0px;
+    transition: .5s;
+  }
+  .menuicon{
+    display: block;
+    float: left;
+    position: absolute;
+    padding: 14px;
+  }
+  .sidenav.responsive{
+    width: 250px;
+    transition: .5s;
+  }
+ 
+  
+}
+/*End of side nav*/
+
+/*Cards*/
+.cardC{
+	margin-top: 70px;
+	margin-bottom: 20px;
+}
+.cards:hover{
+	transform: translateY(-6px);
+
+	transition: 0.24s;
+}
+
+/*End of cards*/
+/*table*/ 
+.shado{
+
+	border-radius: 5px;
+	box-shadow:  7px 7px 20px #cfcfcf, 
+             -5px -5px 20px #ffffff;
+             border:none;
+}
+.trow{
+	font-size: 14px;
+	color: #666;
+}
+.trow .badge{
+	font-size: 10px;
+	position: absolute;
+	left: 80px;
+	background: rgba(1,1,10,.1);
+	color: black;
+	padding: 5px;
+
+}
+.trow img{
+	border: 2px solid white;
+}
+.trow .img2{
+	position: relative;
+	right: 8px;
+}
+.trow .img2:hover{
+z-index: 1;
+}
+.trow img:hover{
+	transform: translateY(-3px);
+	transition: 0.2s;
+	cursor: pointer;
+}
+.trow .img1{
+	position: relative;
+}
+.trow .img1:hover{
+	z-index: 1;
+}
+.card-header{
+	border: none;
+	color: #666;
+	padding: 20px;
+}
+.trow th{
+	padding: 20px 39px;
+	border-top: none;
+}
+.trow td{
+	position: relative;
+	padding: 15px 39px;
+}
+.trow button{
+	margin-left:15px;
+}
+.progress{
+	margin-top: 12px;
+	box-shadow:  10px 10px 15px #cfcfcf, 
+             -10px -10px 20px #ffffff;
+            
+}
+/*end of table*/
+
+
+
